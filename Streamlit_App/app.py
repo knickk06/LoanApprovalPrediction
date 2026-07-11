@@ -51,7 +51,13 @@ div[data-testid="stMetric"]{
 """, unsafe_allow_html=True)
 
 # ---------------- LOAD MODEL ----------------
-model = joblib.load("../Model/loan_prediction_model.pkl")
+import os
+import joblib
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "Model", "loan_prediction_model.pkl")
+
+model = joblib.load(MODEL_PATH)
 
 # ---------------- SIDEBAR ----------------
 st.sidebar.title("🏦 Loan Approval Prediction")

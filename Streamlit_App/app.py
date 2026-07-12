@@ -54,11 +54,18 @@ div[data-testid="stMetric"]{
 import os
 import joblib
 
+# ---------------- LOAD MODEL ----------------
+import os
+import joblib
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "..", "Model", "loan_prediction_model.pkl")
 
 model = joblib.load(MODEL_PATH)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "Model", "loan_prediction_model.pkl")
 
+model = joblib.load(MODEL_PATH)
 # ---------------- SIDEBAR ----------------
 st.sidebar.title("🏦 Loan Approval Prediction")
 
@@ -202,9 +209,7 @@ with right:
     )
 
 # ---------------- ENCODING ----------------
-
-education = 1 if education == "Graduate" else 0
-
+education = 0 if education == "Graduate" else 1
 self_employed = 1 if self_employed == "Yes" else 0
 
 st.divider()
@@ -235,23 +240,15 @@ if st.button("🔍 Predict Loan Status"):
 
     st.subheader("Prediction Result")
 
-    if prediction == 1 or prediction == "Approved":
-
-        st.success("✅ Loan Approved")
-
-        st.progress(int(confidence))
-
-        st.write(f"### Confidence : {confidence:.2f}%")
-
-        st.balloons()
-
-    else:
-
-        st.error("❌ Loan Rejected")
-
-        st.progress(int(confidence))
-
-        st.write(f"### Confidence : {confidence:.2f}%")
+   if prediction == 0:
+    st.success("✅ Loan Approved")
+    st.progress(int(confidence))
+    st.write(f"### Confidence : {confidence:.2f}%")
+    st.balloons()
+else:
+    st.error("❌ Loan Rejected")
+    st.progress(int(confidence))
+    st.write(f"### Confidence : {confidence:.2f}%")
 
 st.divider()
 

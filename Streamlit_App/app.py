@@ -1,7 +1,12 @@
 import streamlit as st
 import numpy as np
 import joblib
+st.sidebar.title("Project Information")
 
+st.sidebar.write("**Project:** Loan Approval Prediction System")
+st.sidebar.write("**Algorithm:** Random Forest Classifier")
+st.sidebar.write("**Dataset:** Kaggle Loan Approval Dataset")
+st.sidebar.write("**Model Accuracy:** 98.6%")
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="Loan Approval Prediction",

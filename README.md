@@ -233,8 +233,7 @@ Motilal Nehru National Institute of Technology (MNNIT), Allahabad
 
 ## 👨‍💻 Author
 
-**Your Name**
-
+NIKUNJ
 GitHub:
 https://github.com/knickk06
 

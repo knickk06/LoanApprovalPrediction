@@ -240,25 +240,13 @@ if st.button("🔍 Predict Loan Status"):
 
     st.subheader("Prediction Result")
 
-   if prediction == 0:
-    st.success("✅ Loan Approved")
-    st.progress(int(confidence))
-    st.write(f"### Confidence : {confidence:.2f}%")
-    st.balloons()
-else:
-    st.error("❌ Loan Rejected")
-    st.progress(int(confidence))
-    st.write(f"### Confidence : {confidence:.2f}%")
+    if prediction == 0:
+        st.success("✅ Loan Approved")
+        st.progress(int(confidence))
+        st.write(f"### Confidence : {confidence:.2f}%")
+        st.balloons()
 
-st.divider()
-
-st.markdown(
-"""
-<center>
-
-Developed using ❤️ Python | Scikit-Learn | Streamlit
-
-</center>
-""",
-unsafe_allow_html=True
-)
+    else:
+        st.error("❌ Loan Rejected")
+        st.progress(int(confidence))
+        st.write(f"### Confidence : {confidence:.2f}%")
